@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+int ReadNumber()
+{
+    int Number;
+
+    cout << "Please enter your number: ";
+    cin >> Number;
+
+    while (cin.fail())
+    {
+        // The user didn't write a number
+        cin.clear();
+        cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+        cout << "Invalid number, Enter a valid one: " << endl;
+        cin >> Number;
+    }
+
+    return Number;
+}
+
+int main()
+{
+    cout << "Your Number is: " << ReadNumber() << endl;
+    return 0;
+}
